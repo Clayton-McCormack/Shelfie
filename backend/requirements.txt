@@ -1,0 +1,31 @@
+# CPU-only torch/torchvision wheels are not on PyPI; they come from PyTorch's own
+# index. Declaring it here means a clean clone installs with a single
+# `pip install -r requirements.txt` and never pulls a multi-GB CUDA build.
+--extra-index-url https://download.pytorch.org/whl/cpu
+
+# Web layer
+Django==6.1
+djangorestframework==3.18.0
+django-cors-headers==4.9.0
+python-dotenv==1.2.3
+
+# Hosted vision-language model is called over plain HTTP rather than a vendor
+# SDK: one less dependency, and the timeout/retry behaviour is ours to own.
+httpx==0.28.1
+
+# Parsing and validating model output, and matching it to the catalog.
+pydantic==2.13.4
+rapidfuzz==3.14.5
+Unidecode==1.4.0
+
+# Local spine detection (CPU inference) plus the classical fallback path.
+torch==2.13.0+cpu
+torchvision==0.28.0+cpu
+ultralytics==8.4.121
+opencv-python==5.0.0.93
+pillow==12.3.0
+numpy==2.5.2
+
+# Tests
+pytest==9.1.1
+pytest-django==4.14.0
