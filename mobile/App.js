@@ -231,6 +231,11 @@ export default function App() {
         {analysis && (
           <View style={styles.results}>
             <Text style={styles.sectionTitle}>Analysis results</Text>
+            <Text style={styles.detection}>
+              Local detection: {analysis.detection.count} candidate regions via{' '}
+              {analysis.detection.route.replace('_', ' ')}.
+            </Text>
+            <Text style={styles.notice}>{analysis.detection.message}</Text>
             <Text style={styles.notice}>{analysis.message}</Text>
             {analysis.results.map((result, index) => (
               <ResultCard
@@ -278,6 +283,7 @@ const styles = StyleSheet.create({
   library: { marginTop: 32 },
   sectionTitle: { fontSize: 21, fontWeight: '700', color: '#1c1a17' },
   notice: { color: '#6b645c', lineHeight: 20, marginTop: 8, marginBottom: 12 },
+  detection: { color: '#1c1a17', fontWeight: '700', lineHeight: 20, marginTop: 8 },
   resultCard: { backgroundColor: '#fff', borderRadius: 10, borderWidth: 1, borderColor: '#e5e0d8', padding: 16, marginTop: 10 },
   resultHeader: { flexDirection: 'row', justifyContent: 'space-between', gap: 8 },
   readTitle: { flex: 1, fontSize: 16, fontWeight: '700', color: '#1c1a17' },

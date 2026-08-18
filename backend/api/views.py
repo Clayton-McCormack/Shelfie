@@ -1,9 +1,14 @@
+import os
+from pathlib import Path
+from tempfile import NamedTemporaryFile
+
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
 from api.models import LibraryBook
 from matching.catalog import load_catalog
 from matching.matcher import AUTO, match_spine
+from vision.detect import detect_books
 from vision.providers import FakeProvider
 
 
@@ -63,6 +68,44 @@ def _add_catalog_book(entry, decision):
     return book
 
 
+def _detect_uploaded_image(image):
+    """Run local detection on an upload without retaining the original file.
+
+    The detector works with a filesystem path, while Django supplies an upload
+    stream. A temporary file bridges those interfaces and is removed even when
+    decoding or model inference fails.
+    """
+    suffix = Path(image.name).suffix or '.jpg'
+    temporary_path = None
+    try:
+        with NamedTemporaryFile(suffix=suffix, delete=False) as temporary:
+            for chunk in image.chunks():
+                temporary.write(chunk)
+            temporary_path = temporary.name
+
+        result = detect_books(temporary_path)
+        return {
+            'route': result.route,
+            'count': len(result.boxes),
+            'message': result.message,
+        }
+    except Exception:
+        # A model failure should not turn a valid upload into a blank screen.
+        # The client can still show fake-provider results while this state is
+        # visible and the request is logged by Django during development.
+        return {
+            'route': 'error',
+            'count': 0,
+            'message': 'Local book detection could not complete for this image.',
+        }
+    finally:
+        if temporary_path:
+            try:
+                os.unlink(temporary_path)
+            except FileNotFoundError:
+                pass
+
+
 @api_view(['POST'])
 def analyse(request):
     """Accept one shelf photo and return catalog matches for its spine reads.
@@ -78,6 +121,7 @@ def analyse(request):
     if not image.content_type.startswith('image/'):
         return Response({'detail': 'The uploaded file must be an image.'}, status=400)
 
+    detection = _detect_uploaded_image(image)
     reads = FakeProvider().read_spines(image)
     results = [match_spine(read.title, read.author) for read in reads]
     automatic_books = [
@@ -89,6 +133,7 @@ def analyse(request):
     return Response(
         {
             'provider': 'fake',
+            'detection': detection,
             'message': 'Demo analysis uses fixed spine reads while the model integration is pending.',
             'results': [_result_payload(result) for result in results],
             'automatic_books': [_library_payload(book) for book in automatic_books],

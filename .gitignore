@@ -4,6 +4,7 @@ __pycache__/
 .env
 db.sqlite3
 media/
+*.pt
 node_modules/
 .expo/
 dist/
