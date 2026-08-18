@@ -1,0 +1,151 @@
+id,title,alt_titles,author,author_variants,year,edition,series,volume_of,notes
+1,The Hobbit,There and Back Again,J. R. R. Tolkien,"Tolkien, J. R. R.|J.R.R. Tolkien|John Ronald Reuel Tolkien|Tolkien",1937,First edition,,,Edition pair with 2
+2,The Hobbit,There and Back Again,J. R. R. Tolkien,"Tolkien, J. R. R.|J.R.R. Tolkien|John Ronald Reuel Tolkien|Tolkien",2012,75th Anniversary Edition,,,Edition pair with 1
+3,The Lord of the Rings,,J. R. R. Tolkien,"Tolkien, J. R. R.|J.R.R. Tolkien|John Ronald Reuel Tolkien",1968,Single-volume omnibus,The Lord of the Rings,,Omnibus of 4-6
+4,The Fellowship of the Ring,,J. R. R. Tolkien,"Tolkien, J. R. R.|J.R.R. Tolkien",1954,,The Lord of the Rings,3,Volume of omnibus 3
+5,The Two Towers,,J. R. R. Tolkien,"Tolkien, J. R. R.|J.R.R. Tolkien",1954,,The Lord of the Rings,3,Volume of omnibus 3
+6,The Return of the King,,J. R. R. Tolkien,"Tolkien, J. R. R.|J.R.R. Tolkien",1955,,The Lord of the Rings,3,Volume of omnibus 3
+7,The Silmarillion,,J. R. R. Tolkien,"Tolkien, J. R. R.|J.R.R. Tolkien",1977,,,,
+8,Harry Potter and the Philosopher's Stone,Harry Potter and the Sorcerer's Stone,J. K. Rowling,"Rowling, J. K.|J.K. Rowling|Joanne Rowling",1997,UK edition,Harry Potter,,US/UK title split with 9
+9,Harry Potter and the Sorcerer's Stone,Harry Potter and the Philosopher's Stone,J. K. Rowling,"Rowling, J. K.|J.K. Rowling|Joanne Rowling",1998,US edition,Harry Potter,,US/UK title split with 8
+10,Harry Potter and the Chamber of Secrets,,J. K. Rowling,"Rowling, J. K.|J.K. Rowling",1998,,Harry Potter,,Long shared prefix with 8-15
+11,Harry Potter and the Prisoner of Azkaban,,J. K. Rowling,"Rowling, J. K.|J.K. Rowling",1999,,Harry Potter,,Long shared prefix with 8-15
+12,Harry Potter and the Goblet of Fire,,J. K. Rowling,"Rowling, J. K.|J.K. Rowling",2000,,Harry Potter,,Long shared prefix with 8-15
+13,Harry Potter and the Order of the Phoenix,,J. K. Rowling,"Rowling, J. K.|J.K. Rowling",2003,,Harry Potter,,Long shared prefix with 8-15
+14,Harry Potter and the Half-Blood Prince,,J. K. Rowling,"Rowling, J. K.|J.K. Rowling",2005,,Harry Potter,,Long shared prefix with 8-15
+15,Harry Potter and the Deathly Hallows,,J. K. Rowling,"Rowling, J. K.|J.K. Rowling",2007,,Harry Potter,,Long shared prefix with 8-15
+16,His Dark Materials,,Philip Pullman,"Pullman, Philip",2007,Omnibus,His Dark Materials,,Omnibus of 17 19 20
+17,Northern Lights,The Golden Compass,Philip Pullman,"Pullman, Philip",1995,UK edition,His Dark Materials,16,US/UK title split with 18
+18,The Golden Compass,Northern Lights,Philip Pullman,"Pullman, Philip",1996,US edition,His Dark Materials,16,US/UK title split with 17
+19,The Subtle Knife,,Philip Pullman,"Pullman, Philip",1997,,His Dark Materials,16,Volume of omnibus 16
+20,The Amber Spyglass,,Philip Pullman,"Pullman, Philip",2000,,His Dark Materials,16,Volume of omnibus 16
+21,The Complete Sherlock Holmes,,Arthur Conan Doyle,"Doyle, Arthur Conan|Conan Doyle, Arthur|Sir Arthur Conan Doyle",1927,Collected edition,Sherlock Holmes,,Omnibus of 22-25
+22,A Study in Scarlet,,Arthur Conan Doyle,"Doyle, Arthur Conan|Conan Doyle, Arthur",1887,,Sherlock Holmes,21,Volume of omnibus 21
+23,The Sign of the Four,The Sign of Four,Arthur Conan Doyle,"Doyle, Arthur Conan|Conan Doyle, Arthur",1890,,Sherlock Holmes,21,Volume of omnibus 21
+24,The Hound of the Baskervilles,,Arthur Conan Doyle,"Doyle, Arthur Conan|Conan Doyle, Arthur",1902,,Sherlock Holmes,21,Volume of omnibus 21
+25,The Adventures of Sherlock Holmes,,Arthur Conan Doyle,"Doyle, Arthur Conan|Conan Doyle, Arthur",1892,,Sherlock Holmes,21,Volume of omnibus 21
+26,The Divine Comedy,La Divina Commedia,Dante Alighieri,"Alighieri, Dante|Dante",1320,Collected edition,The Divine Comedy,,Omnibus of 27-29
+27,Inferno,,Dante Alighieri,"Alighieri, Dante|Dante",1320,,The Divine Comedy,26,Shares title with 68
+28,Purgatorio,,Dante Alighieri,"Alighieri, Dante|Dante",1320,,The Divine Comedy,26,Volume of omnibus 26
+29,Paradiso,,Dante Alighieri,"Alighieri, Dante|Dante",1320,,The Divine Comedy,26,Volume of omnibus 26
+30,Dune,,Frank Herbert,"Herbert, Frank",1965,First edition,Dune,,Edition pair with 31; substring of 32 and 33
+31,Dune,,Frank Herbert,"Herbert, Frank",2021,Movie tie-in edition,Dune,,Edition pair with 30
+32,Dune Messiah,,Frank Herbert,"Herbert, Frank",1969,,Dune,,Contains Dune as substring
+33,Children of Dune,,Frank Herbert,"Herbert, Frank",1976,,Dune,,Contains Dune as substring
+34,1984,Nineteen Eighty-Four,George Orwell,"Orwell, George|Eric Arthur Blair|Blair, Eric",1949,Signet Classics,,,Edition pair with 35; confusable with 67
+35,Nineteen Eighty-Four,1984,George Orwell,"Orwell, George|Eric Arthur Blair",2003,Penguin Modern Classics,,,Edition pair with 34
+36,Animal Farm,,George Orwell,"Orwell, George|Eric Arthur Blair",1945,,,,
+37,The Road to Wigan Pier,,George Orwell,"Orwell, George|Eric Arthur Blair",1937,,,,Contains The Road as substring
+38,The Road,,Cormac McCarthy,"McCarthy, Cormac",2006,,,,Shares title with 39; substring of 37
+39,The Road,,Jack London,"London, Jack|London, John Griffith",1907,,,,Shares title with 38
+40,The Alchemist,O Alquimista,Paulo Coelho,"Coelho, Paulo",1988,,,,Shares title with 41
+41,The Alchemist,,Ben Jonson,"Jonson, Ben|Jonson, Benjamin",1610,,,,Shares title with 40
+42,It,,Stephen King,"King, Stephen|King, Stephen Edwin",1986,,,,Shares title with 43; substring of 44 and 45
+43,It,,Alexa Chung,"Chung, Alexa",2013,,,,Shares title with 42
+44,It Ends with Us,,Colleen Hoover,"Hoover, Colleen",2016,,,,Contains It as substring
+45,It Starts with Us,,Colleen Hoover,"Hoover, Colleen",2022,,,,Contains It as substring
+46,The Shining,,Stephen King,"King, Stephen",1977,,,,
+47,Misery,,Stephen King,"King, Stephen",1987,,,,
+48,The Stand,,Stephen King,"King, Stephen",1978,,,,
+49,The Outsider,The Stranger,Albert Camus,"Camus, Albert",1942,UK edition,,,US/UK split with 50; shares title with 51; substring of 52
+50,The Stranger,The Outsider,Albert Camus,"Camus, Albert",1946,US edition,,,US/UK title split with 49
+51,The Outsider,,Stephen King,"King, Stephen",2018,,,,Shares title with 49
+52,The Outsiders,,S. E. Hinton,"Hinton, S. E.|Hinton, Susan Eloise|S.E. Hinton",1967,,,,Contains The Outsider as substring
+53,Pride and Prejudice,,Jane Austen,"Austen, Jane",1813,First edition,,,Edition pair with 54
+54,Pride and Prejudice,,Jane Austen,"Austen, Jane",2003,Penguin Classics,,,Edition pair with 53
+55,Emma,,Jane Austen,"Austen, Jane",1815,,,,Shares title with 56
+56,Emma,,Alexander McCall Smith,"McCall Smith, Alexander|Smith, Alexander McCall",2014,,,,Shares title with 55
+57,Sense and Sensibility,,Jane Austen,"Austen, Jane",1811,,,,
+58,Persuasion,,Jane Austen,"Austen, Jane",1817,,,,
+59,Crime and Punishment,,Fyodor Dostoevsky,"Dostoevsky, Fyodor|Dostoyevsky, Fyodor|Fedor Dostoevskii|Dostoevskij, F. M.",1866,,,,Transliteration variants
+60,The Brothers Karamazov,,Fyodor Dostoevsky,"Dostoevsky, Fyodor|Dostoyevsky, Fyodor|Fedor Dostoevskii",1880,,,,Transliteration variants
+61,War and Peace,,Leo Tolstoy,"Tolstoy, Leo|Tolstoy, Lev|Lev Nikolayevich Tolstoy|Tolstoi, L. N.",1869,,,,Transliteration variants
+62,Anna Karenina,,Leo Tolstoy,"Tolstoy, Leo|Tolstoy, Lev|Tolstoi, L. N.",1878,,,,
+63,One Hundred Years of Solitude,Cien anos de soledad,Gabriel Garcia Marquez,"Gabriel García Márquez|García Márquez, Gabriel|Marquez, Gabriel Garcia|Garcia Marquez, G.",1967,,,,Accent variants
+64,Love in the Time of Cholera,El amor en los tiempos del colera,Gabriel Garcia Marquez,"Gabriel García Márquez|García Márquez, Gabriel|Marquez, Gabriel Garcia",1985,,,,Accent variants
+65,Norwegian Wood,,Haruki Murakami,"Murakami, Haruki",1987,,,,
+66,Kafka on the Shore,,Haruki Murakami,"Murakami, Haruki",2002,,,,
+67,1Q84,,Haruki Murakami,"Murakami, Haruki",2009,,,,Visually confusable with 34
+68,Inferno,,Dan Brown,"Brown, Dan",2013,,Robert Langdon,,Shares title with 27
+69,The Da Vinci Code,,Dan Brown,"Brown, Dan",2003,,Robert Langdon,,
+70,Angels and Demons,Angels & Demons,Dan Brown,"Brown, Dan",2000,,Robert Langdon,,Ampersand variant
+71,The Girl on the Train,,Paula Hawkins,"Hawkins, Paula",2015,,,,Shares title with 72
+72,The Girl on the Train,,A. J. Waines,"Waines, A. J.|Waines, Alison",2013,,,,Shares title with 71
+73,The Girl with the Dragon Tattoo,Men Who Hate Women,Stieg Larsson,"Larsson, Stieg",2005,,Millennium,,Literal Swedish title as alt
+74,Gone Girl,,Gillian Flynn,"Flynn, Gillian",2012,,,,
+75,The Testament,,John Grisham,"Grisham, John",1999,,,,Substring of 77
+76,The Handmaid's Tale,,Margaret Atwood,"Atwood, Margaret|Atwood, Margaret Eleanor",1985,,,,
+77,The Testaments,,Margaret Atwood,"Atwood, Margaret",2019,,,,Contains The Testament as substring
+78,To Kill a Mockingbird,,Harper Lee,"Lee, Harper|Lee, Nelle Harper",1960,,,,
+79,Go Set a Watchman,,Harper Lee,"Lee, Harper|Lee, Nelle Harper",2015,,,,
+80,The Great Gatsby,,F. Scott Fitzgerald,"Fitzgerald, F. Scott|Francis Scott Fitzgerald|Fitzgerald, Francis Scott",1925,,,,
+81,The Catcher in the Rye,,J. D. Salinger,"Salinger, J. D.|J.D. Salinger|Salinger, Jerome David",1951,,,,
+82,Lord of the Flies,,William Golding,"Golding, William",1954,,,,
+83,Brave New World,,Aldous Huxley,"Huxley, Aldous",1932,,,,
+84,Fahrenheit 451,,Ray Bradbury,"Bradbury, Ray|Bradbury, Ray Douglas",1953,,,,
+85,Slaughterhouse-Five,Slaughterhouse Five,Kurt Vonnegut,"Vonnegut, Kurt|Vonnegut, Kurt Jr.",1969,,,,Hyphenation variant
+86,Catch-22,Catch 22,Joseph Heller,"Heller, Joseph",1961,,,,Hyphenation variant
+87,The Bell Jar,,Sylvia Plath,"Plath, Sylvia|Victoria Lucas",1963,,,,Originally published under a pseudonym
+88,Wuthering Heights,,Emily Bronte,"Brontë, Emily|Bronte, Emily|Ellis Bell",1847,,,,Accent and pseudonym variants
+89,Jane Eyre,,Charlotte Bronte,"Brontë, Charlotte|Bronte, Charlotte|Currer Bell",1847,,,,Accent and pseudonym variants
+90,Frankenstein,"Frankenstein; or, The Modern Prometheus",Mary Shelley,"Shelley, Mary|Shelley, Mary Wollstonecraft",1818,,,,
+91,Dracula,,Bram Stoker,"Stoker, Bram|Stoker, Abraham",1897,,,,
+92,The Picture of Dorian Gray,,Oscar Wilde,"Wilde, Oscar|Wilde, Oscar Fingal",1890,,,,
+93,Great Expectations,,Charles Dickens,"Dickens, Charles|Dickens, Charles John Huffam",1861,,,,
+94,A Tale of Two Cities,,Charles Dickens,"Dickens, Charles",1859,,,,
+95,Oliver Twist,,Charles Dickens,"Dickens, Charles",1838,,,,
+96,The Little Prince,Le Petit Prince,Antoine de Saint-Exupery,"Antoine de Saint-Exupéry|Saint-Exupéry, Antoine de|Saint-Exupery, Antoine de|de Saint-Exupery, Antoine",1943,,,,Accent variants
+97,The Metamorphosis,Die Verwandlung,Franz Kafka,"Kafka, Franz",1915,,,,
+98,The Trial,Der Process,Franz Kafka,"Kafka, Franz",1925,,,,
+99,Beloved,,Toni Morrison,"Morrison, Toni|Morrison, Chloe Ardelia Wofford",1987,,,,
+100,A Game of Thrones,,George R. R. Martin,"Martin, George R. R.|George R.R. Martin|Martin, George Raymond Richard|George RR Martin",1996,,A Song of Ice and Fire,,
+101,A Clash of Kings,,George R. R. Martin,"Martin, George R. R.|George R.R. Martin",1998,,A Song of Ice and Fire,,
+102,A Storm of Swords,,George R. R. Martin,"Martin, George R. R.|George R.R. Martin",2000,,A Song of Ice and Fire,,
+103,The Name of the Wind,,Patrick Rothfuss,"Rothfuss, Patrick",2007,,The Kingkiller Chronicle,,
+104,Mistborn,Mistborn: The Final Empire|The Final Empire,Brandon Sanderson,"Sanderson, Brandon",2006,,Mistborn,,Subtitle sometimes printed alone on the spine
+105,The Way of Kings,,Brandon Sanderson,"Sanderson, Brandon",2010,,The Stormlight Archive,,
+106,The Hunger Games,,Suzanne Collins,"Collins, Suzanne",2008,,The Hunger Games,,
+107,Catching Fire,,Suzanne Collins,"Collins, Suzanne",2009,,The Hunger Games,,
+108,Mockingjay,,Suzanne Collins,"Collins, Suzanne",2010,,The Hunger Games,,
+109,Ender's Game,,Orson Scott Card,"Card, Orson Scott",1985,,,,
+110,Neuromancer,,William Gibson,"Gibson, William|Gibson, William Ford",1984,,,,
+111,Snow Crash,,Neal Stephenson,"Stephenson, Neal",1992,,,,
+112,The Martian,,Andy Weir,"Weir, Andy",2011,,,,
+113,Project Hail Mary,,Andy Weir,"Weir, Andy",2021,,,,
+114,Ready Player One,,Ernest Cline,"Cline, Ernest",2011,,,,
+115,Circe,,Madeline Miller,"Miller, Madeline",2018,,,,
+116,The Song of Achilles,,Madeline Miller,"Miller, Madeline",2011,,,,
+117,Normal People,,Sally Rooney,"Rooney, Sally",2018,,,,
+118,Conversations with Friends,,Sally Rooney,"Rooney, Sally",2017,,,,
+119,Where the Crawdads Sing,,Delia Owens,"Owens, Delia",2018,,,,
+120,The Seven Husbands of Evelyn Hugo,,Taylor Jenkins Reid,"Reid, Taylor Jenkins|Jenkins Reid, Taylor",2017,,,,
+121,Little Fires Everywhere,,Celeste Ng,"Ng, Celeste",2017,,,,
+122,Little Women,,Louisa May Alcott,"Alcott, Louisa May|Alcott, L. M.",1868,,,,
+123,A Little Life,,Hanya Yanagihara,"Yanagihara, Hanya",2015,,,,
+124,The Kite Runner,,Khaled Hosseini,"Hosseini, Khaled",2003,,,,
+125,A Thousand Splendid Suns,,Khaled Hosseini,"Hosseini, Khaled",2007,,,,
+126,Life of Pi,,Yann Martel,"Martel, Yann",2001,,,,
+127,The Book Thief,,Markus Zusak,"Zusak, Markus",2005,,,,
+128,Sapiens,Sapiens: A Brief History of Humankind,Yuval Noah Harari,"Harari, Yuval Noah|Harari, Yuval",2011,,,,Subtitle often printed on the spine
+129,Homo Deus,Homo Deus: A Brief History of Tomorrow,Yuval Noah Harari,"Harari, Yuval Noah|Harari, Yuval",2015,,,,
+130,Atomic Habits,,James Clear,"Clear, James",2018,,,,
+131,Educated,Educated: A Memoir,Tara Westover,"Westover, Tara",2018,,,,
+132,Becoming,,Michelle Obama,"Obama, Michelle|Obama, Michelle LaVaughn Robinson",2018,,,,
+133,"Thinking, Fast and Slow",,Daniel Kahneman,"Kahneman, Daniel",2011,,,,Title contains a comma
+134,Quiet,Quiet: The Power of Introverts,Susan Cain,"Cain, Susan",2012,,,,
+135,Outliers,Outliers: The Story of Success,Malcolm Gladwell,"Gladwell, Malcolm",2008,,,,
+136,The Tipping Point,,Malcolm Gladwell,"Gladwell, Malcolm",2000,,,,
+137,A Brief History of Time,,Stephen Hawking,"Hawking, Stephen|Hawking, Stephen William|Hawking, S. W.",1988,,,,
+138,The Selfish Gene,,Richard Dawkins,"Dawkins, Richard|Dawkins, Clinton Richard",1976,,,,
+139,Bad Blood,,John Carreyrou,"Carreyrou, John",2018,,,,
+140,Born a Crime,,Trevor Noah,"Noah, Trevor",2016,,,,
+141,"Salt, Fat, Acid, Heat",,Samin Nosrat,"Nosrat, Samin",2017,,,,Title contains commas
+142,Joy of Cooking,The Joy of Cooking,Irma S. Rombauer,"Rombauer, Irma S.|Rombauer, Irma|Rombauer, Irma von Starkloff",1931,,,,Leading article often added in error
+143,Matilda,,Roald Dahl,"Dahl, Roald",1988,,,,
+144,Charlie and the Chocolate Factory,,Roald Dahl,"Dahl, Roald",1964,,,,
+145,The Very Hungry Caterpillar,,Eric Carle,"Carle, Eric",1969,,,,
+146,The Fault in Our Stars,,John Green,"Green, John|Green, John Michael",2012,,,,
+147,The Lightning Thief,Percy Jackson and the Lightning Thief,Rick Riordan,"Riordan, Rick|Riordan, Richard Russell",2005,,Percy Jackson,,Series name often prefixed on the spine
+148,Murder on the Orient Express,Murder in the Calais Coach,Agatha Christie,"Christie, Agatha|Christie, Agatha Mary Clarissa|Mary Westmacott",1934,,Hercule Poirot,,US retitling as alt
+149,And Then There Were None,Ten Little Indians,Agatha Christie,"Christie, Agatha|Christie, Agatha Mary Clarissa",1939,,,,US retitling as alt
+150,The Murder of Roger Ackroyd,,Agatha Christie,"Christie, Agatha",1926,,Hercule Poirot,,
