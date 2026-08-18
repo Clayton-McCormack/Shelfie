@@ -236,6 +236,12 @@ export default function App() {
               {analysis.detection.route.replace('_', ' ')}.
             </Text>
             <Text style={styles.notice}>{analysis.detection.message}</Text>
+            {analysis.detection.contact_sheets > 0 && (
+              <Text style={styles.notice}>
+                Prepared {analysis.detection.contact_sheets} numbered crop batch
+                {analysis.detection.contact_sheets === 1 ? '' : 'es'} for title reading.
+              </Text>
+            )}
             <Text style={styles.notice}>{analysis.message}</Text>
             {analysis.results.map((result, index) => (
               <ResultCard

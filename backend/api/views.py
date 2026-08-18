@@ -8,6 +8,7 @@ from rest_framework.response import Response
 from api.models import LibraryBook
 from matching.catalog import load_catalog
 from matching.matcher import AUTO, match_spine
+from vision.contact_sheet import create_contact_sheets
 from vision.detect import detect_books
 from vision.providers import FakeProvider
 
@@ -84,11 +85,13 @@ def _detect_uploaded_image(image):
             temporary_path = temporary.name
 
         result = detect_books(temporary_path)
+        contact_sheets = create_contact_sheets(temporary_path, result.boxes)
         return {
             'route': result.route,
             'count': len(result.boxes),
+            'contact_sheets': len(contact_sheets),
             'message': result.message,
-        }
+        }, contact_sheets
     except Exception:
         # A model failure should not turn a valid upload into a blank screen.
         # The client can still show fake-provider results while this state is
@@ -96,8 +99,9 @@ def _detect_uploaded_image(image):
         return {
             'route': 'error',
             'count': 0,
+            'contact_sheets': 0,
             'message': 'Local book detection could not complete for this image.',
-        }
+        }, ()
     finally:
         if temporary_path:
             try:
@@ -121,8 +125,8 @@ def analyse(request):
     if not image.content_type.startswith('image/'):
         return Response({'detail': 'The uploaded file must be an image.'}, status=400)
 
-    detection = _detect_uploaded_image(image)
-    reads = FakeProvider().read_spines(image)
+    detection, contact_sheets = _detect_uploaded_image(image)
+    reads = FakeProvider().read_contact_sheets(contact_sheets) if contact_sheets else []
     results = [match_spine(read.title, read.author) for read in reads]
     automatic_books = [
         _add_catalog_book(result.best.entry, 'automatic')

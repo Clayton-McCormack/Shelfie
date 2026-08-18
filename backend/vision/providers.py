@@ -2,13 +2,14 @@
 
 from typing import Protocol
 
+from .contact_sheet import ContactSheet
 from .schemas import SpineRead
 
 
 class VisionProvider(Protocol):
     """Produces one read for each spine the provider can identify."""
 
-    def read_spines(self, image) -> list[SpineRead]:
+    def read_contact_sheets(self, contact_sheets: tuple[ContactSheet, ...]) -> list[SpineRead]:
         ...
 
 
@@ -20,7 +21,7 @@ class FakeProvider:
     title ambiguity, and a book absent from the catalog.
     """
 
-    def read_spines(self, image) -> list[SpineRead]:
+    def read_contact_sheets(self, contact_sheets: tuple[ContactSheet, ...]) -> list[SpineRead]:
         return [
             SpineRead(title='The Great Gatsby', author='F. Scott Fitzgerald'),
             SpineRead(title='Hary Poter and the Philosphers Ston', author='J.K. Rowling'),
