@@ -17,8 +17,9 @@ from dotenv import load_dotenv
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# Reads backend/.env if present. Keeps the hosted-model API key out of the repo;
-# the app must still start (and the test suite still run) when the file is absent.
+# An optional backend/.env supplies the hosted-model API key. Its absence is not
+# an error: the server starts and the test suite runs without it, because the
+# fake vision provider requires no credentials.
 load_dotenv(BASE_DIR / '.env')
 
 
@@ -31,10 +32,10 @@ SECRET_KEY = 'django-insecure-%7qyk3^&+w$ruhdelgb-i#0kzwt^413c$reoxm2j4x++jvym@!
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-# The Expo client runs on a physical phone and reaches this server over the LAN by
-# IP, so the host header is whatever LAN address the dev machine happens to have.
-# Wide open is acceptable here only because this is a DEBUG-only dev server that is
-# never deployed; see README "Decisions and tradeoffs".
+# The Expo client runs on a physical handset and reaches the API over the LAN by
+# IP, so the Host header carries whatever address the development machine holds
+# at the time. Accepting any host is tolerable only for a DEBUG-only server that
+# is never deployed.
 ALLOWED_HOSTS = ['*']
 
 
@@ -132,13 +133,14 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-# Uploaded bookshelf photos and the spine crops cut from them.
+# Destination for uploaded bookshelf photos and the spine crops derived from
+# them. Gitignored: this is runtime output, not repository content.
 MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
 
-# Expo Go serves the JS bundle from an origin that changes with the tunnel/LAN
-# address, so there is no stable origin to allowlist during development.
+# Expo Go serves the JS bundle from an origin that varies with the LAN or tunnel
+# address, leaving no stable origin to allowlist during development.
 CORS_ALLOW_ALL_ORIGINS = True
 
 

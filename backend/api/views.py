@@ -6,8 +6,8 @@ from rest_framework.response import Response
 def health(request):
     """Liveness probe.
 
-    Exists so the phone can prove it can reach this server over the LAN before
-    any of the vision pipeline is involved. When an upload misbehaves later,
-    this separates "the network is wrong" from "the pipeline is wrong".
+    Confirms LAN reachability between handset and API independently of the
+    vision pipeline. When an upload later fails, this endpoint distinguishes a
+    networking fault from a pipeline fault.
     """
     return Response({'status': 'ok'})
