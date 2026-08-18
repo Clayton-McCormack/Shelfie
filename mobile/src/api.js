@@ -73,3 +73,15 @@ export async function request(path, { method = 'GET', body, timeoutMs = REQUEST_
 
   return data;
 }
+
+/** Uploads one image using the field name the Django endpoint expects. */
+export function analyseShelfPhoto(asset) {
+  const form = new FormData();
+  form.append('image', {
+    uri: asset.uri,
+    name: asset.fileName ?? 'bookshelf.jpg',
+    type: asset.mimeType ?? 'image/jpeg',
+  });
+
+  return request('/api/analyses/', { method: 'POST', body: form });
+}
