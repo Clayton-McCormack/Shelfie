@@ -85,3 +85,14 @@ export function analyseShelfPhoto(asset) {
 
   return request('/api/analyses/', { method: 'POST', body: form });
 }
+
+export function getLibrary() {
+  return request('/api/library/');
+}
+
+export function addLibraryBook(data) {
+  return request('/api/library/', {
+    method: 'POST',
+    body: JSON.stringify(data),
+  });
+}

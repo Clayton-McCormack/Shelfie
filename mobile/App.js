@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   ActivityIndicator,
   Image,
@@ -7,12 +7,13 @@ import {
   ScrollView,
   StyleSheet,
   Text,
+  TextInput,
   View,
 } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import * as ImagePicker from 'expo-image-picker';
 
-import { analyseShelfPhoto } from './src/api';
+import { addLibraryBook, analyseShelfPhoto, getLibrary } from './src/api';
 
 const STATUS_LABELS = {
   auto: 'Added automatically',
@@ -20,7 +21,10 @@ const STATUS_LABELS = {
   unmatched: 'No catalog match',
 };
 
-function ResultCard({ result }) {
+function ResultCard({ result, onConfirm, onCorrect, onDiscard, isSaving }) {
+  const [isCorrecting, setIsCorrecting] = useState(false);
+  const [title, setTitle] = useState(result.read_title);
+  const [author, setAuthor] = useState(result.read_author);
   const best = result.candidates[0];
 
   return (
@@ -47,6 +51,60 @@ function ResultCard({ result }) {
           {reason}
         </Text>
       ))}
+
+      {result.status === 'review' && !isCorrecting && (
+        <View style={styles.reviewActions}>
+          <Pressable
+            style={styles.confirmButton}
+            disabled={isSaving}
+            onPress={() => onConfirm(best)}
+          >
+            <Text style={styles.confirmButtonText}>Confirm</Text>
+          </Pressable>
+          <Pressable style={styles.textButton} disabled={isSaving} onPress={() => setIsCorrecting(true)}>
+            <Text style={styles.textButtonLabel}>Correct</Text>
+          </Pressable>
+          <Pressable style={styles.textButton} disabled={isSaving} onPress={onDiscard}>
+            <Text style={styles.textButtonLabel}>Discard</Text>
+          </Pressable>
+        </View>
+      )}
+
+      {result.status === 'unmatched' && (
+        <Pressable style={styles.textButton} onPress={onDiscard}>
+          <Text style={styles.textButtonLabel}>Discard</Text>
+        </Pressable>
+      )}
+
+      {isCorrecting && (
+        <View style={styles.correction}>
+          <Text style={styles.correctionTitle}>Correct this book</Text>
+          <TextInput
+            value={title}
+            onChangeText={setTitle}
+            placeholder="Title"
+            style={styles.input}
+          />
+          <TextInput
+            value={author}
+            onChangeText={setAuthor}
+            placeholder="Author"
+            style={styles.input}
+          />
+          <View style={styles.reviewActions}>
+            <Pressable
+              style={styles.confirmButton}
+              disabled={isSaving}
+              onPress={() => onCorrect({ title, author })}
+            >
+              <Text style={styles.confirmButtonText}>Save correction</Text>
+            </Pressable>
+            <Pressable style={styles.textButton} disabled={isSaving} onPress={() => setIsCorrecting(false)}>
+              <Text style={styles.textButtonLabel}>Cancel</Text>
+            </Pressable>
+          </View>
+        </View>
+      )}
     </View>
   );
 }
@@ -54,8 +112,23 @@ function ResultCard({ result }) {
 export default function App() {
   const [asset, setAsset] = useState(null);
   const [analysis, setAnalysis] = useState(null);
+  const [library, setLibrary] = useState([]);
   const [state, setState] = useState('idle');
+  const [savingIndex, setSavingIndex] = useState(null);
   const [error, setError] = useState('');
+
+  async function loadLibrary() {
+    try {
+      const data = await getLibrary();
+      setLibrary(data.books);
+    } catch (err) {
+      setError(err.message);
+    }
+  }
+
+  useEffect(() => {
+    loadLibrary();
+  }, []);
 
   async function useImagePicker(openPicker) {
     setError('');
@@ -94,9 +167,31 @@ export default function App() {
       const data = await analyseShelfPhoto(asset);
       setAnalysis(data);
       setState('complete');
+      loadLibrary();
     } catch (err) {
       setError(err.message);
       setState('ready');
+    }
+  }
+
+  function removeResult(index) {
+    setAnalysis((current) => ({
+      ...current,
+      results: current.results.filter((_, resultIndex) => resultIndex !== index),
+    }));
+  }
+
+  async function saveReview(index, data) {
+    setSavingIndex(index);
+    setError('');
+    try {
+      const book = await addLibraryBook(data);
+      setLibrary((current) => [book, ...current.filter((item) => item.id !== book.id)]);
+      removeResult(index);
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setSavingIndex(null);
     }
   }
 
@@ -138,10 +233,28 @@ export default function App() {
             <Text style={styles.sectionTitle}>Analysis results</Text>
             <Text style={styles.notice}>{analysis.message}</Text>
             {analysis.results.map((result, index) => (
-              <ResultCard key={`${result.read_title}-${index}`} result={result} />
+              <ResultCard
+                key={`${result.read_title}-${index}`}
+                result={result}
+                isSaving={savingIndex === index}
+                onConfirm={(candidate) => saveReview(index, { catalog_id: candidate.id, decision: 'confirmed' })}
+                onCorrect={(correction) => saveReview(index, correction)}
+                onDiscard={() => removeResult(index)}
+              />
             ))}
           </View>
         )}
+
+        <View style={styles.library}>
+          <Text style={styles.sectionTitle}>My library</Text>
+          {library.length === 0 && <Text style={styles.notice}>Confirmed books will appear here.</Text>}
+          {library.map((book) => (
+            <View key={book.id} style={styles.libraryRow}>
+              <Text style={styles.libraryTitle}>{book.title}</Text>
+              {!!book.author && <Text style={styles.libraryAuthor}>{book.author}</Text>}
+            </View>
+          ))}
+        </View>
       </ScrollView>
     </SafeAreaView>
   );
@@ -162,6 +275,7 @@ const styles = StyleSheet.create({
   loadingText: { marginLeft: 10, color: '#6b645c' },
   error: { color: '#a32b2b', marginTop: 16, lineHeight: 20 },
   results: { marginTop: 28 },
+  library: { marginTop: 32 },
   sectionTitle: { fontSize: 21, fontWeight: '700', color: '#1c1a17' },
   notice: { color: '#6b645c', lineHeight: 20, marginTop: 8, marginBottom: 12 },
   resultCard: { backgroundColor: '#fff', borderRadius: 10, borderWidth: 1, borderColor: '#e5e0d8', padding: 16, marginTop: 10 },
@@ -175,4 +289,15 @@ const styles = StyleSheet.create({
   match: { marginTop: 12, color: '#1c1a17', lineHeight: 20 },
   confidence: { marginTop: 8, color: '#6b645c' },
   reason: { marginTop: 7, color: '#6b645c', fontSize: 13, lineHeight: 18 },
+  reviewActions: { flexDirection: 'row', alignItems: 'center', gap: 12, marginTop: 16 },
+  confirmButton: { backgroundColor: '#1c1a17', paddingHorizontal: 14, paddingVertical: 10, borderRadius: 7 },
+  confirmButtonText: { color: '#fff', fontWeight: '600' },
+  textButton: { paddingVertical: 10 },
+  textButtonLabel: { color: '#5a4331', fontWeight: '600' },
+  correction: { marginTop: 14 },
+  correctionTitle: { fontWeight: '700', color: '#1c1a17', marginBottom: 8 },
+  input: { borderWidth: 1, borderColor: '#d3cdc4', borderRadius: 7, padding: 10, marginTop: 8, color: '#1c1a17' },
+  libraryRow: { borderBottomWidth: 1, borderBottomColor: '#e5e0d8', paddingVertical: 12 },
+  libraryTitle: { color: '#1c1a17', fontWeight: '700' },
+  libraryAuthor: { color: '#6b645c', marginTop: 3 },
 });
