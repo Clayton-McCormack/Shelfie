@@ -21,6 +21,10 @@ const STATUS_LABELS = {
   unmatched: 'No catalog match',
 };
 
+function formatSeconds(milliseconds) {
+  return (milliseconds / 1000).toFixed(2);
+}
+
 function ResultCard({ result, onConfirm, onCorrect, onDiscard, isSaving }) {
   const [isCorrecting, setIsCorrecting] = useState(false);
   const [title, setTitle] = useState(result.read_title);
@@ -243,6 +247,14 @@ export default function App() {
               </Text>
             )}
             <Text style={styles.notice}>{analysis.message}</Text>
+            {analysis.timings_ms && (
+              <Text style={styles.notice}>
+                Timing: local {formatSeconds(analysis.timings_ms.local_detection)}s · Gemini{' '}
+                {formatSeconds(analysis.timings_ms.hosted_reading)}s · matching{' '}
+                {formatSeconds(analysis.timings_ms.matching)}s · total{' '}
+                {formatSeconds(analysis.timings_ms.total)}s
+              </Text>
+            )}
             {analysis.results.map((result, index) => (
               <ResultCard
                 key={`${result.read_title}-${index}`}
