@@ -56,15 +56,17 @@ function ResultCard({ result, onConfirm, onCorrect, onDiscard, isSaving }) {
         </Text>
       ))}
 
-      {result.status === 'review' && !isCorrecting && (
+      {(result.status === 'review' || result.status === 'unmatched') && !isCorrecting && (
         <View style={styles.reviewActions}>
-          <Pressable
-            style={styles.confirmButton}
-            disabled={isSaving}
-            onPress={() => onConfirm(best)}
-          >
-            <Text style={styles.confirmButtonText}>Confirm</Text>
-          </Pressable>
+          {result.status === 'review' && best && (
+            <Pressable
+              style={styles.confirmButton}
+              disabled={isSaving}
+              onPress={() => onConfirm(best)}
+            >
+              <Text style={styles.confirmButtonText}>Confirm</Text>
+            </Pressable>
+          )}
           <Pressable style={styles.textButton} disabled={isSaving} onPress={() => setIsCorrecting(true)}>
             <Text style={styles.textButtonLabel}>Correct</Text>
           </Pressable>
@@ -72,12 +74,6 @@ function ResultCard({ result, onConfirm, onCorrect, onDiscard, isSaving }) {
             <Text style={styles.textButtonLabel}>Discard</Text>
           </Pressable>
         </View>
-      )}
-
-      {result.status === 'unmatched' && (
-        <Pressable style={styles.textButton} onPress={onDiscard}>
-          <Text style={styles.textButtonLabel}>Discard</Text>
-        </Pressable>
       )}
 
       {isCorrecting && (
